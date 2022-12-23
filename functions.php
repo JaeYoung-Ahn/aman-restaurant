@@ -178,3 +178,22 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 // Custom post types & taxonomies
 require get_template_directory() . '/inc/cpt-taxonomy.php';
+
+    /* Custom Post Type Start */
+    function menu_post_type() {
+		register_post_type( 'menu',
+		// CPT Options
+		array(
+		  'labels' => array(
+		   'name' => __( 'Menu' ),
+		   'singular_name' => __( 'Menu' )
+		  ),
+		  'public' => true,
+		  'has_archive' => false,
+		  'rewrite' => array('slug' => 'menu'),
+		 )
+		);
+		}
+		// Hooking up our function to theme setup
+		add_action( 'init', 'menu_post_type' );
+		/* Custom Post Type End */
