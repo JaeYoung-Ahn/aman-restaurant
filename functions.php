@@ -179,21 +179,57 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // Custom post types & taxonomies
 require get_template_directory() . '/inc/cpt-taxonomy.php';
 
-    /* Custom Post Type Start */
-    function menu_post_type() {
-		register_post_type( 'menu',
-		// CPT Options
-		array(
-		  'labels' => array(
-		   'name' => __( 'Menu' ),
-		   'singular_name' => __( 'Menu' )
-		  ),
-		  'public' => true,
-		  'has_archive' => false,
-		  'rewrite' => array('slug' => 'menu'),
-		 )
-		);
-		}
-		// Hooking up our function to theme setup
-		add_action( 'init', 'menu_post_type' );
-		/* Custom Post Type End */
+// function aman_custom_post_types() {
+// 	//register menu CPTs
+// 	$labels = array(
+// 		'name'               => _x( 'Menu', 'post type general name' ),
+// 		'singular_name'      => _x( 'Menu', 'post type singular name'),
+// 		'menu_name'          => _x( 'Menu', 'admin menu' ),
+// 		'name_admin_bar'     => _x( 'Menu', 'add new on admin bar' ),
+// 		'add_new'            => _x( 'Add New', 'Menu' ),
+// 		'add_new_item'       => __( 'Add New Menu' ),
+// 		'new_item'           => __( 'New Menu' ),
+// 		'edit_item'          => __( 'Edit Menu' ),
+// 		'view_item'          => __( 'View Menu' ),
+// 		'all_items'          => __( 'All Menu' ),
+// 		'search_items'       => __( 'Search Menu' ),
+// 		'parent_item_colon'  => __( 'Parent Works:' ),
+// 		'not_found'          => __( 'No Menu found.' ),
+// 		'not_found_in_trash' => __( 'No Menu found in Trash.' ),
+// 		'archives'           => __( 'Menu Archives'),
+// 		'insert_into_item'   => __( 'Insert into Menu'),
+// 		'uploaded_to_this_item' => __( 'Uploaded to this Menu'),
+// 		'filter_item_list'   => __( 'Filter Menu list'),
+// 		'items_list_navigation' => __( 'Menu list navigation'),
+// 		'items_list'         => __( 'Menu list'),
+// 		'featured_image'     => __( 'Menu featured image'),
+// 		'set_featured_image' => __( 'Set Menu featured image'),
+// 		'remove_featured_image' => __( 'Remove Menu featured image'),
+// 		'use_featured_image' => __( 'Use as featured image'),
+// 	);
+// 	$args = array(
+// 		'labels'             => $labels,
+// 		'public'             => true,
+// 		'publicly_queryable' => true,
+// 		'show_ui'            => true,
+// 		'show_in_menu'       => true,
+// 		'show_in_nav_menus'  => true,
+// 		'show_in_admin_bar'  => true,
+// 		'show_in_rest'       => true,
+// 		'query_var'          => true,
+// 		'rewrite'            => array( 'slug' => 'menu' ),
+// 		'capability_type'    => 'post',
+// 		'has_archive'        => true,
+// 		'hierarchical'       => false,
+// 		'menu_position'      => 5,
+// 		'menu_icon'          => 'dashicons-archive',
+// 		'supports'           => array( 'title' ),
+// 	);
+
+// 	register_post_type( 'aman-menu', $args );
+// }
+
+
+
+// Disable Block Editor
+add_filter('use_block_editor_for_post', '__return_false');
